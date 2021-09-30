@@ -53,7 +53,7 @@ else:
     print("Creating passwordKeyLocation")
     os.mkdir(passwordKeyLocation)
 
-passwordKeyFile = Path(passwordKeyLocation + passwordKeyName)
+passwordKeyFile = Path(passwordKeyLocation + passwordKeyName + ".pem")
 passwordKeyPath = passwordKeyLocation + passwordKeyName + ".pem"
 print("passwordKeyFile = " + passwordKeyPath)
 if(passwordKeyFile.is_file()):
