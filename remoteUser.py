@@ -55,4 +55,16 @@ if (userCreation != 0):
 else:
     print("remote user succesfully created")
     os.system("echo '0' > /tmp/status404/remoteUser")
+    directoryCreationCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " mkdir /.scripts"
+    os.system(directoryCreationCommand)
+    scriptDownloadCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " curl https://raw.githubusercontent.com/404-Privilege-Remote-Access-Tool/scripts/master/commandList --output /.scripts/commandList"
+    os.system(scriptDownloadCommand)
+    scriptDownloadCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " curl https://raw.githubusercontent.com/404-Privilege-Remote-Access-Tool/scripts/master/commandValidation.py --output /.scripts/commandValidation.py"
+    os.system(scriptDownloadCommand)
+    permissionCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " chmod +x /.scripts/commandValidation.py"
+    os.system(permissionCommand)
+    scriptDownloadCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " curl https://raw.githubusercontent.com/404-Privilege-Remote-Access-Tool/scripts/master/commandValidator --output /usr/bin/commandValidator"
+    os.system(scriptDownloadCommand)
+    permissionCommand = "ssh -i " + keyLocation + keyName + " " + adminRemoteUser + "@" + remoteIp + " chmod +x /usr/bin/commandValidator"
+    os.system(permissionCommand)
     exit()
