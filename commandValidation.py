@@ -15,3 +15,5 @@ while command != 'sshExit':
     else:
         print("Comand permission not granted, please connect with the admin")
 
+    command = input("Enter the command: ")
+
